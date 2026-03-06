@@ -1,83 +1,83 @@
 # TP Front-Back
 
-This project is a full-stack application consisting of an Angular frontend and a Spring Boot backend.
+Ce projet est une application full-stack composée d'un frontend Angular et d'un backend Spring Boot.
 
-## Prerequisites
+## Prérequis
 
 - Node.js & npm
-- Java (JDK 17 or later recommended)
-- Maven (optional, wrapper included)
+- Java (JDK 17 ou version ultérieure recommandée)
+- Maven (optionnel, wrapper inclus)
 
-## Project Structure
+## Structure du Projet
 
-- `frontend-angular/`: The Angular frontend application.
-- `demo 2/`: The Spring Boot backend application.
+- `frontend-angular/` : L'application frontend Angular.
+- `demo 2/` : L'application backend Spring Boot.
 
-## How to Run
+## Comment Lancer le Projet
 
 ### 1. Backend (Spring Boot)
 
-Navigate to the backend directory:
+Naviguez vers le répertoire du backend :
 
 ```bash
 cd "demo 2"
 ```
 
-Run the application using the Maven wrapper:
+Lancez l'application en utilisant le wrapper Maven :
 
 ```bash
-# On macOS/Linux
+# Sur macOS/Linux
 ./mvnw spring-boot:run
 
-# On Windows
+# Sur Windows
 mvnw.cmd spring-boot:run
 ```
 
-The backend server will start on `http://localhost:9000`.
-You can access the H2 console at `http://localhost:9000/h2-console`.
+Le serveur backend démarrera sur `http://localhost:9000`.
+Vous pouvez accéder à la console H2 via `http://localhost:9000/h2-console`.
 
 ### 2. Frontend (Angular)
 
-Open a new terminal and navigate to the frontend directory:
+Ouvrez un nouveau terminal et naviguez vers le répertoire du frontend :
 
 ```bash
 cd frontend-angular
 ```
 
-Install the dependencies:
+Installez les dépendances :
 
 ```bash
 npm install
 ```
 
-Start the development server:
+Démarrez le serveur de développement :
 
 ```bash
 npm start
 ```
 
-The frontend application will be available at `http://localhost:4200`.
+L'application frontend sera accessible sur `http://localhost:4200`.
 
-## Testing
+## Tests
 
-### Frontend Tests
+### Tests Frontend
 
-To run the unit tests for the frontend:
+Pour exécuter les tests unitaires du frontend :
 
 ```bash
 cd frontend-angular
 npm test
 ```
 
-To run Cypress end-to-end tests:
+Pour exécuter les tests end-to-end Cypress :
 
 ```bash
 cd frontend-angular
 npm run cy:open
 ```
 
-## Features
+## Fonctionnalités
 
-- User authentication (Login/Register)
-- Note management (Create, Read, Update, Delete)
-- Admin capabilities
+- Authentification utilisateur (Connexion/Inscription)
+- Gestion des notes (Créer, Lire, Mettre à jour, Supprimer)
+- Fonctionnalités d'administration

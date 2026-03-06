@@ -1,0 +1,72 @@
+
+<br />
+<div class="flex justify-between items-center gap-4 mb-4">
+  <h1 class="text-2xl font-bold text-gray-800">
+    @if (isAdmin()) {
+      Toutes les notes
+    } @else {
+      Votre liste de notes
+    }
+  </h1>
+  <button
+    data-cy="create-note"
+    (click)="openModal()"
+    class="border border-blue-500 text-blue-500 px-4 py-2 rounded-md hover:bg-blue-100">
+    Nouvelle note
+  </button>
+</div>
+<div data-cy="note-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  @if (notes.length > 0) {
+    @for (note of notes; track note.id) {
+      <app-note-card-component [note]="note"></app-note-card-component>
+    }
+  } @else {
+    <p>Aucune note trouvée.</p>
+  }
+</div>
+
+@if (isModalOpen) {
+  <div class="fixed inset-0 flex items-center justify-center bg-black/50">
+
+    <div class="bg-white p-6 rounded-lg w-96 shadow-lg">
+
+      <h2 class="text-xl font-bold mb-4">Nouvelle note</h2>
+
+      <form (ngSubmit)="addNote()">
+
+        <div class="mb-4">
+          <label class="block mb-1">Titre</label>
+          <input
+            data-cy="note-title"
+            type="text"
+            [(ngModel)]="newNote.title"
+            name="title"
+            class="w-full border rounded px-3 py-2"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="block mb-1">Contenu</label>
+          <textarea
+            data-cy="note-content"
+            [(ngModel)]="newNote.content"
+            name="content"
+            class="w-full border rounded px-3 py-2"
+          ></textarea>
+        </div>
+
+        <div class="flex justify-end gap-2">
+          <button type="button" (click)="closeModal()" class="px-3 py-2 border rounded">
+            Annuler
+          </button>
+
+          <button data-cy="save-note" type="submit" class="px-3 py-2 bg-blue-500 text-white rounded">
+            Enregistrer
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+}

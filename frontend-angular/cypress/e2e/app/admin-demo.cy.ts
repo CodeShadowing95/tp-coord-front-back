@@ -30,13 +30,12 @@ describe('Admin test', () => {
     cy.get('[data-cy=note-title]').type('Test Note');
     cy.get('[data-cy=note-content]').type('This is a test note.');
     cy.get('[data-cy=save-note]').click();
-    cy.contains('Note title').should('be.visible');
-    cy.contains('Note content.').should('be.visible');
+    cy.contains('Test Note').should('be.visible');
+    cy.contains('This is a test note.').should('be.visible');
   })
 
   it('should delete a note', () => {
     cy.get('[data-cy=note-list]').should('have.length.greaterThan', 0);
-    // cy.get('[data-delete-note]').first().click();
-    //
+    cy.get('[data-delete-note]').first().click();
   })
 })
